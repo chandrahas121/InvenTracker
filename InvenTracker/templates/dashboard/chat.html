@@ -5,16 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
+    <style>
         body {
             margin-top: 10px;
-            margin-bottom: 100px; /* Adjusted margin to accommodate chat-form */
+            margin-bottom: 10px; /* Adjusted margin to accommodate chat-form */
             position: relative; /* Required for absolute positioning */
+            font-family: 'Poppins', sans-serif;
+            background-color: #18181B;
+            color: white; /* Changed text color to white */
         }
+
+        a {
+            text-decoration: none;
+            color: white; /* Changed link color to white */
+        }
+
         /*************** Navbar ***************/
         .navbar-custom {
             background-color: #f4511e !important; /* Orange navbar color */
         }
+
         /*************** Chat right side ***************/
         .selected-user {
             width: 100%;
@@ -25,13 +35,17 @@
             -webkit-border-radius: 0 3px 0 0;
             -moz-border-radius: 0 3px 0 0;
             border-radius: 0 3px 0 0;
+            color: white; /* Changed text color to white */
         }
+
         .selected-user span {
             line-height: 100%;
         }
+
         .selected-user span.name {
             font-weight: 700;
         }
+
         .chat-container {
             position: relative;
             padding: 1rem;
@@ -47,6 +61,7 @@
             flex-direction: row;
             margin-bottom: 40px;
         }
+
         .chat-container li img {
             width: 48px;
             height: 48px;
@@ -54,23 +69,28 @@
             -moz-border-radius: 30px;
             border-radius: 30px;
         }
+
         .chat-container li .chat-avatar {
             margin-right: 20px;
         }
+
         .chat-container li.chat-right {
             justify-content: flex-end;
         }
+
         .chat-container li.chat-right > .chat-avatar {
             margin-left: 20px;
             margin-right: 0;
         }
+
         .chat-container li .chat-name {
             font-size: .75rem;
-            color: #140404;
+            color: white; /* Changed text color to white */
             text-align: center;
         }
+
         .chat-container li .chat-text {
-            padding: .4rem 1rem;
+            padding: .2rem 1rem;
             -webkit-border-radius: 4px;
             -moz-border-radius: 4px;
             border-radius: 4px;
@@ -78,7 +98,9 @@
             font-weight: 300;
             line-height: 150%;
             position: relative;
+            color: black; /* Text color inside chat bubbles */
         }
+
         .chat-container li .chat-text:before {
             content: '';
             position: absolute;
@@ -89,14 +111,17 @@
             border: 10px solid;
             border-color: transparent #ffffff transparent transparent;
         }
+
         .chat-container li.chat-right > .chat-text {
             text-align: right;
         }
+
         .chat-container li.chat-right > .chat-text:before {
             right: -20px;
             border-color: transparent transparent transparent #ffffff;
             left: inherit;
         }
+
         .chat-container li .chat-hour {
             padding: 0;
             margin-bottom: 10px;
@@ -106,35 +131,45 @@
             align-items: center;
             justify-content: center;
             margin: 0 15px 0 0; /* Updated margin */
+            color: white; 
+            margin-right:10px;/* Changed text color to white */
         }
+
         .chat-container li .chat-hour > span {
             font-size: 16px;
             color: #9ec94a;
         }
+
         .chat-container li.chat-right > .chat-hour {
             margin: 0 0 0 15px; /* Updated margin */
         }
+
         @media (max-width: 767px) {
             .chat-container li.chat-left,
             .chat-container li.chat-right {
                 flex-direction: column;
                 margin-bottom: 30px;
             }
+
             .chat-container li img {
                 width: 32px;
                 height: 32px;
             }
+
             .chat-container li.chat-left .chat-avatar {
                 margin: 0 0 5px 0;
                 display: flex;
                 align-items: center;
             }
+
             .chat-container li.chat-left .chat-hour {
                 justify-content: flex-end;
             }
+
             .chat-container li.chat-left .chat-name {
                 margin-left: 5px;
             }
+
             .chat-container li.chat-right .chat-avatar {
                 order: -1;
                 margin: 0 0 5px 0;
@@ -143,39 +178,46 @@
                 justify-content: right;
                 flex-direction: row-reverse;
             }
+
             .chat-container li.chat-right .chat-hour {
                 justify-content: flex-start;
                 order: 2;
             }
+
             .chat-container li.chat-right .chat-name {
                 margin-right: 5px;
             }
+
             .chat-container li .chat-text {
                 font-size: .8rem;
             }
         }
+
         .chat-form {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
             padding: 15px;
-            background-color: #ffffff;
-            border-top: 1px solid white;
+            font-family: 'Poppins', sans-serif;
+            background-color: #18181B;
             z-index: 9999;
+            color: white; /* Changed text color to white */
         }
+
         ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
         }
+
         .card {
             border: 0;
             background: #f4f5fb;
             -webkit-border-radius: 2px;
             -moz-border-radius: 2px;
             border-radius: 2px;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             box-shadow: none;
         }
 
@@ -191,6 +233,7 @@
         .chat-messages::-webkit-scrollbar {
             display: none;
         }
+
         /* Styling the button */
         .btn-custom {
             background-color: #f4511e !important;
@@ -224,63 +267,65 @@
             border-top-left-radius: 0; /* Remove border-radius from top-left */
             border-bottom-left-radius: 0; /* Remove border-radius from bottom-left */
         }
-        .H-button{
+
+        .H-button {
             padding: 8px;
-              width: 100%;
-              border-radius: 8px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              gap: 8px;
-              font-size: 1rem;
-              font-weight: 700;
-              color: #323760;
-              border: 1px solid #6667b0;
-              background: transparent;
-              cursor: pointer;
-              transition: all 0.3s ease;
-          }
-          nav{
-    max-width: 1200px;
-    margin: auto;
-    padding: 2rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-}
+            width: 100%;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: white; /* Changed text color to white */
+            border: 1px solid #6667b0;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-.nav-logo{
-    max-width: 100px;
-}
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
 
-.nav-links{
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-}
+        .nav-logo {
+            max-width: 100px;
+        }
 
-.link a{
-    position: relative;
-    padding-bottom: 0.75rem;
-    color: #fff;
-}
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
 
-.link a::after{
-    content: "";
-    position: absolute;
-    height: 2px;
-    width: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #1d4ed8;
-    transition: all 0.3s ease;
-}
+        .link a {
+            position: relative;
+            padding-bottom: 0.75rem;
+            color: white; /* Changed link color to white */
+        }
 
-.link a:hover::after{
-    width: 70%;
-}
+        .link a::after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #1d4ed8;
+            transition: all 0.3s ease;
+        }
+
+        .link a:hover::after {
+            width: 70%;
+        }
     </style>
 </head>
 <body>
@@ -293,9 +338,6 @@
         <ul class="nav-links">
             {% if user.is_authenticated %}
             <li class="link"><a href="{% url 'dashboard-index' %}">Home</a></li>
-            <li id="link1" class="link"><a href="#">Features</a></li>
-            <li id="link2" class="link"><a href="#">Pricing</a></li>
-            <li id="link3" class="link"><a href="#">About</a></li>
             <li id="link6" class="link"><a href="{% url 'user-profile' %}"> {{user.username}} Profile</a></li>
             <form action="{% url 'user-logout' %}" method="post" style="display:inline;">
                 {% csrf_token %}
@@ -308,7 +350,6 @@
         </ul>
     </nav>
     
-    
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <div class="container">
         <div class="page-title">
@@ -320,8 +361,7 @@
         </div>
         <div class="content-wrapper">
             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
-                <div class="selected-user">
-                </div>
+               
                 <div class="chat-container">
                     <div class="chat-messages">
                         <ul class="chat-box chatContainerScroll">
@@ -331,7 +371,7 @@
                                 <div class="chat-hour"><span class="fa fa-check-circle"></span>{{ message.timestamp|date:"H:i" }} </div>
                                 <div class="chat-text">{{ message.content }}</div>
                                 <div class="chat-avatar">
-                                    <img src="{{ message.sender.profile_photo.url }}" alt="{{ message.sender.username }}">
+                                    <img src="{{ message.sender.profile.image.url }}" alt="{{ message.sender.username }}">
                                     <div class="chat-name">{{ message.sender.username }}</div>
                                 </div>
                                 {% else %}
@@ -368,14 +408,14 @@
                 var chatMessages = $('.chat-messages');
                 chatMessages.scrollTop(chatMessages.prop('scrollHeight'));
             }
-    
+
             // Scroll to bottom when the page loads
             scrollChatToBottom();
-    
+
             // Function to handle form submission (assuming you have a form with ID 'messageForm')
             //$('#messageForm').submit(function(event) {
                 //event.preventDefault(); // Prevent the form from submitting normally
-    
+
                 // Your form submission logic goes here
                 // After the message is sent, scroll to bottom
                 //scrollChatToBottom();

@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -144,8 +145,14 @@ header .content p{
 }
 
 header .image{
+    
     position: relative;
 }
+header .image img {
+    max-width: 100%;
+    height: auto;
+}
+
 
 header .image::before{
     content: "o";
@@ -425,7 +432,7 @@ footer .column > a:hover{
   <nav>
     <div class="nav-logo">
         <a href="{% url 'dashboard-index' %}">
-            <img src="images/logo.png">
+            <img src="{%static 'images/logo.png' %}">
         </a>
     </div>
     <ul class="nav-links">
@@ -448,7 +455,7 @@ footer .column > a:hover{
            
         </div>
         <div class="image">
-            <img src="https://github.com/AsmrProg-YT/Personal-Portfolios/blob/master/Personal%20Portfolio%20%2301/images/header.png?raw=true">
+            <img src="{%static 'images/index-image.jpg' %}">
         </div>
     </header>
 

@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,6 +64,7 @@ nav{
 }
 
 .link a{
+    decoration:none;
     position: relative;
     padding-bottom: 0.75rem;
     color: #fff;
@@ -425,7 +427,7 @@ footer .column > a:hover{
   <nav>
     <div class="nav-logo">
         <a href="{% url 'dashboard-index' %}">
-            <img src="images/logo.png">
+            <img src={{logo.png}}>
         </a>
     </div>
     <ul class="nav-links">

@@ -130,6 +130,7 @@ STATICFILES_DIRS = [
   BASE_DIR/"static"
 ]
 
+
 STATIC_ROOT = (BASE_DIR/"assests/")
 
 MEDIA_ROOT = (BASE_DIR/'media')
