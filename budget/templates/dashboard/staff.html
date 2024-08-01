@@ -452,6 +452,7 @@ footer .column > a:hover{
                               <th scope="col">Name</th>
                               <th scope="col">Email</th>
                               <th scope="col">Phone</th>
+                              <th scope="col">Chat</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -461,6 +462,14 @@ footer .column > a:hover{
                               <td>{{ worker.username }}</td>
                               <td>{{ worker.email }}</td>
                               <td>{{ worker.profile.phone }} </td>
+                              <td> 
+                                <form method="post" action="{% url 'create_chat_room' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="sender_id" value="{{ user.id }}">
+                                    <input type="hidden" name="receiver_id" value="{{ worker.id }}">
+                                    <button type="submit" class="btn btn-info">Chat</button>
+                                </form>
+                              </td>
                           </tr>
                           {% endfor %}
                           
