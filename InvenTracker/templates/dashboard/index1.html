@@ -138,6 +138,10 @@ header .content h1 span{
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px #fff;
 }
+span{
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #fff;
+}
 
 header .content p{
     margin-bottom: 2rem;
@@ -179,6 +183,13 @@ section .header{
     text-align: center;
     font-size: 2.25rem;
     font-weight: 600;
+}
+section .header1{
+    margin-bottom: 1rem;
+    color: #fff;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 300;
 }
 
 .features{
@@ -431,8 +442,8 @@ footer .column > a:hover{
 
   <nav>
     <div class="nav-logo">
-        <a href="{% url 'dashboard-index' %}">
-            <img src="{%static 'images/logo.png' %}">
+        <a href="{% url 'user-login' %}">
+            <img src="{%static 'images/logo3.png' %}">
         </a>
     </div>
     <ul class="nav-links">
@@ -445,12 +456,10 @@ footer .column > a:hover{
         <div class="content">
             <span class="blur"></span>
             <span class="blur"></span>
-            <h4>CREATE YOUR SITE LIKE A PRO</h4>
-            <H1>Hi, I'm <span>Reza</span>, Web Developer</H1>
+            <h4>Welcome to InvenTracker!!</h4>
+            <H1>Hello <span>User</span>,</H1>
             <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus rem eos aliquid quo rerum
-                temporibus ipsum distinctio numquam ut omnis placeat, nam sint atque quos dolorem laborum? Rerum, esse
-                dolorem.
+                Please Login to view the entire site and to use it to the fullest.
             </p>
            
         </div>
@@ -466,30 +475,42 @@ footer .column > a:hover{
                 <span><i class="ri-money-dollar-box-line"></i></span>
                 <h4>Products</h4>
                 <p>
-                    My tutorials in my channel "AsmrProg" are free and you don't need to pay anything.
+                    If you are the admin you can add the products available.
                 </p>
-                <a href="{% url 'dashboard-product' %}">Products<i class="ri-arrow-right-line"></i></a>
+                <a href="{% url 'user-login' %}">Products<i class="ri-arrow-right-line"></i></a>
             </div>
             <div class="card">
                 <span><i class="ri-bug-line"></i></span>
                 <h4>Orders</h4>
                 <p>
-                    You have any problem in your codes? Tell me, i will help you fix it.
+                    Staff can make request of an item to the admin.
                 </p>
-                <a href="{% url 'dashboard-order' %}">Orders<i class="ri-arrow-right-line"></i></a>
+                <a href="{% url 'user-login' %}">Orders<i class="ri-arrow-right-line"></i></a>
             </div>
             <div class="card">
               <span><i class="ri-bug-line"></i></span>
               <h4>Staff</h4>
               <p>
-                  You have any problem in your codes? Tell me, i will help you fix it.
+                  View your staff.
               </p>
-              <a href="{% url 'dashboard-staff' %}">Staff <i class="ri-arrow-right-line"></i></a>
+              <a href="{% url 'user-login' %}">Staff <i class="ri-arrow-right-line"></i></a>
           </div>
            
         </div>
     </section>
-
+    <section>
+    <h2 class="header">Graphs</h2>
+    <p class="header1">Stay updated with the latest information through our dynamic real-time graphs. Our dashboard features two essential visualizations:
+        <ul class="header1">
+            <li>
+               <span>Orders Overview</span>  - Pie Chart: This interactive pie chart provides a comprehensive overview of the current order statuses. It categorizes orders into segments such as pending, processed, shipped, and delivered, allowing you to quickly grasp the distribution and performance of your order management.
+            </li>
+            <li>
+               <span>Product Availability</span>  - Bar Graph: Monitor your inventory effortlessly with our detailed bar graph. It displays the available products along with their respective quantities. Each bar represents a specific product, giving you a clear picture of stock levels, helping in efficient inventory management, and ensuring that you never run out of your best-selling items.
+            </li>
+        </ul>  
+        <p class="header1">These real-time graphs are designed to provide actionable insights at a glance, empowering you to make informed decisions and keep your operations running smoothly.</p>      
+        </p>
     <div class="container">
       <div class="row my-5">
           <div class="col-md-6">
@@ -582,16 +603,17 @@ footer .column > a:hover{
           </div>
       </div>
   </div>
+</section>
 
     <footer class="container">
         <span class="blur"></span>
         <span class="blur"></span>
         <div class="column">
             <div class="logo">
-                <img src="images/logo.png">
+                <img src="{%static 'images/logo3.png' %}">
             </div>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Follow us on :
             </p>
             <div class="socials">
                 <a href="#"><i class="ri-youtube-line"></i></a>

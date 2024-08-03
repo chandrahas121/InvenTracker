@@ -402,6 +402,27 @@ footer .column > a:hover{
         grid-template-columns: 1fr 150px;
     }
 }
+.custom-btn-green {
+    color: #fff;
+    background-color: #28a745; /* Green color */
+    border-color: #28a745;
+}
+
+.custom-btn-green:hover {
+    background-color: #218838; /* Darker green */
+    border-color: #1e7e34;
+}
+
+.custom-btn-red {
+    color: #fff;
+    background-color: #dc3545; /* Red color */
+    border-color: #dc3545;
+}
+
+.custom-btn-red:hover {
+    background-color: #c82333; /* Darker red */
+    border-color: #bd2130;
+}
     </style>
 </head>
 
@@ -461,7 +482,7 @@ footer .column > a:hover{
                             {% csrf_token %}
                             {{form|crispy}}
     
-                            <input class="btn btn-success btn-block" type="submit" value="Add Product">
+                            <input class="btn custom-btn-green btn-sm" type="submit" value="Add Product">
     
                         </form>
                     </div>
@@ -483,8 +504,8 @@ footer .column > a:hover{
                                 <td>{{ item.category }}</td>
                                 <td>{{ item.quantity }}</td>
                                 <td>
-                                    <a class="btn btn-info btn-sm" href="{% url 'dashboard-product-update' item.id %}">Edit</a>
-                                    <a class="btn btn-danger btn-sm" href="{% url 'dashboard-product-delete' item.id %}">Delete</a>
+                                    <a class="btn custom-btn-green btn-sm" href="{% url 'dashboard-product-update' item.id %}">Edit</a>
+                                    <a class="btn custom-btn-red btn-sm" href="{% url 'dashboard-product-delete' item.id %}">Delete</a>
                                 </td>
                             </tr>
                             {% endfor %}
