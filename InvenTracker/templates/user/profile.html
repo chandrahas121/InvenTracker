@@ -31,6 +31,16 @@ img{
     width: 100%;
     display: flex;
 }
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #f6d365;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+    }
 
 a{
     text-decoration: none;
@@ -174,128 +184,7 @@ section .header{
     font-weight: 600;
 }
 
-.features{
-    margin-top: 4rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-}
 
-.features .card{
-    background-color: #27272a;
-    padding: 1rem;
-    border: 2px solid transparent;
-    border-radius: 15px;
-    transition: all 0.3s ease;
-}
-
-.features .card:hover{
-    background-color: #323232;
-    border-color: #fff;
-}
-
-.features .card span{
-    display: inline-block;
-    background-color: #1e40af;
-    padding: 2px 9px;
-    margin-bottom: 1rem;
-    font-size: 1.75rem;
-    color: #fff;
-    border-radius: 5px;
-}
-
-.features .card h4{
-    margin-bottom: 0.5rem;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.features .card p{
-    color: #ccc;
-    margin-bottom: 1rem;
-}
-
-.features .card a{
-    color: #fff;
-    transition: all 0.3s ease;
-}
-
-.features .card a:hover{
-    color: #1e40af;
-}
-
-.sub-header{
-    max-width: 600px;
-    margin: auto;
-    text-align: center;
-    color: #ccc;
-}
-
-.pricing{
-    margin-top: 4rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.pricing .card{
-    padding: 3rem 2rem;
-    background-color: #27272a;
-    display: flex;
-    flex-direction: column;
-    border: 2px solid transparent;
-    border-radius: 15px;
-    transition: all 0.3s ease;
-}
-
-.pricing .card:hover{
-    background-color: #323232;
-    border-color: #fff;
-}
-
-.pricing .card .content{
-    flex: 1;
-    margin-bottom: 2rem;
-}
-
-.pricing .card h4{
-    margin-bottom: 1rem;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-
-.pricing .card h3{
-    color: #fff;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    font-weight: 600;
-    border-bottom: 2px dashed #fff;
-}
-
-.pricing .card p{
-    color: #fff;
-    margin-bottom: 0.75rem;
-}
-
-.pricing .card p i{
-    color: #ccc;
-    font-size: 1.2rem;
-    margin-right: 0.3rem;
-}
-
-.pricing .card button{
-    color: #fff;
-    background-color: transparent;
-    border: 2px solid #fff;
-}
-
-.pricing .card button:hover{
-    background-color: #1e40af;
-    border-color: #1e40af;
-}
 
 footer{
     position: relative;
@@ -431,6 +320,29 @@ footer .column > a:hover{
 .edit-button:hover {
     background-color: #1e40af;
 }
+
+/* Adjustments for the card */
+.card {
+    width: 100%;
+    max-width: 770px; /* Ensure the card does not exceed the max width */
+    margin: auto;
+}
+
+.card .card-body {
+    padding: 1rem; /* Reduce padding for better spacing */
+}
+
+.card .col-md-4 {
+    padding: 1rem; /* Add padding for the left section */
+}
+
+.card .col-md-8 {
+    padding: 1rem; /* Add padding for the right section */
+}
+
+.card .row .col-6 {
+    margin-bottom: 0.5rem; /* Reduce margin for better spacing */
+}
     </style>
 </head>
 
@@ -459,52 +371,56 @@ footer .column > a:hover{
 </nav>
 
 
-<div class="container">
-    <div class="row my-4">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header bg-info text-white">
-                    Profile Page
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <span class="h4"> Profile Information</span> 
-                            <a class="btn btn-info float-right edit-button" href="{% url 'user-profile-update' %}">Edit</a>
-                            <hr>
-                            <table class="table bg-white table-borderless">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Name</th>
-                                        <td>{{user.username}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Email</th>
-                                        <td>{{user.email}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Phone</th>
-                                        <td>{{user.profile.phone}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Address</th>
-                                        <td>{{user.profile.address}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-md-4">
-                            <img class="img-thumbnail" src="{{user.profile.image.url}}" alt="">
-                        </div>
+<section class="vh-100" style="background-color: #18181B;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-200">
+        <div class="col col-lg-7 mb-4 mb-lg-0">
+          <div class="card mb-3" style="border-radius: .5rem; width: 800px;">
+            <div class="row g-0">
+              <div class="col-md-4 gradient-custom text-center text-white"
+                style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem; ">
+                
+                <img src="{{user.profile.image.url}}"
+                  alt="Avatar" class="img-fluid my-5 ml-5" style="width: 150px;" />
+   
+                <h5>{{user.username}}</h5>
+                <p>InvenTracker</p>
+                 <a class="btn btn-info edit-button" href="{% url 'user-profile-update' %}">Edit</a>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body p-4">
+                  <h6>Information</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Name</h6>
+                      <p class="text-muted">{{user.username}}</p>
                     </div>
+                    <div class="col-6 mb-3">
+                      <h6>Email</h6>
+                      <p class="text-muted">{{user.email}}</p>
+                    </div>
+                  </div>
+                 
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Phone</h6>
+                      <p class="text-muted">{{user.profile.phone}}</p>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <h6>Address</h6>
+                        <p class="text-muted">{{user.profile.address}}</p>
+                      </div>
+                  </div>
+                  
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-
+      </div>
     </div>
-</div>
-
+  </section>
 
 
  
