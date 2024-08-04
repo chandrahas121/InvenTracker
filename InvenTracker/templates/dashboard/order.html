@@ -233,70 +233,7 @@ section .header{
     color: #ccc;
 }
 
-.pricing{
-    margin-top: 4rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
 
-.pricing .card{
-    padding: 3rem 2rem;
-    background-color: #27272a;
-    display: flex;
-    flex-direction: column;
-    border: 2px solid transparent;
-    border-radius: 15px;
-    transition: all 0.3s ease;
-}
-
-.pricing .card:hover{
-    background-color: #323232;
-    border-color: #fff;
-}
-
-.pricing .card .content{
-    flex: 1;
-    margin-bottom: 2rem;
-}
-
-.pricing .card h4{
-    margin-bottom: 1rem;
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-
-.pricing .card h3{
-    color: #fff;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    font-weight: 600;
-    border-bottom: 2px dashed #fff;
-}
-
-.pricing .card p{
-    color: #fff;
-    margin-bottom: 0.75rem;
-}
-
-.pricing .card p i{
-    color: #ccc;
-    font-size: 1.2rem;
-    margin-right: 0.3rem;
-}
-
-.pricing .card button{
-    color: #fff;
-    background-color: transparent;
-    border: 2px solid #fff;
-}
-
-.pricing .card button:hover{
-    background-color: #1e40af;
-    border-color: #1e40af;
-}
 
 footer{
     position: relative;
@@ -401,6 +338,122 @@ footer .column > a:hover{
         grid-template-columns: 1fr 150px;
     }
 }
+.H-button{
+    padding: 8px;
+      width: 100%;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #323760;
+      border: 1px solid #6667b0;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  }
+  .container1::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+.container1 {
+    height: 400px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    background: linear-gradient(45deg, #49a09d, #5f2c82);
+	font-family: sans-serif;
+	font-weight: 100;
+    border-radius: 15px;
+}
+
+th,
+td {
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+th {
+	text-align: left;
+    background-color: #55608f;
+}
+
+thead {
+	th {
+		background-color: #55608f;
+	}
+}
+
+tbody {
+	tr {
+		&:hover {
+			background-color: rgba(255,255,255,0.3);
+		}
+	}
+	td {
+		position: relative;
+		&:hover {
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -9999px;
+				bottom: -9999px;
+				background-color: rgba(255,255,255,0.2);
+				z-index: -1;
+			}
+		}
+	}
+}
+/* Existing button styles */
+.btn1, .btn2 {
+  background: #5E5DF0;
+  border-radius: 8px; /* Less rounded corners */
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
+/* Ensure text color and background color are consistent on hover */
+.btn1, .btn2 {
+  text-decoration: none; /* Remove underline */
+  color: #FFFFFF; /* Keep text color consistent */
+}
+
+.btn1:hover, .btn2:hover {
+  color: #FFFFFF; /* Maintain text color on hover */
+  background: #5E5DF0; /* Maintain background color on hover */
+}
+
     </style>
 </head>
 
@@ -415,9 +468,12 @@ footer .column > a:hover{
 
         <ul class="nav-links">
             <li class="link"><a href="{% url 'dashboard-index' %}">Home</a></li>
-            <li id="link1" class="link"><a href="#">Features</a></li>
-            <li id="link2" class="link"><a href="#">Pricing</a></li>
-            <li id="link3" class="link"><a href="#">About</a></li>
+            
+            <li id="link6" class="link"><a href="{% url 'user-profile' %}"> {{user.username}} Profile</a></li>
+        <form action="{% url 'user-logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button class="H-button" type="submit">Logout</button>
+        </form>
         </ul>
         
     </nav>
@@ -426,17 +482,15 @@ footer .column > a:hover{
         <div class="content">
             <span class="blur"></span>
             <span class="blur"></span>
-            <h4>CREATE YOUR SITE LIKE A PRO</h4>
-            <H1>Hi, I'm <span>Reza</span>, Web Developer</H1>
+            <h4>Manage Your Inventory With Ease!!</h4>
+            <H1>Hello <span>{{user.username}}</span>,</H1>
             <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus rem eos aliquid quo rerum
-                temporibus ipsum distinctio numquam ut omnis placeat, nam sint atque quos dolorem laborum? Rerum, esse
-                dolorem.
+                Here, you can view all the orders placed by your staff members. This page provides a comprehensive overview of each order, including the product details, quantity ordered, and the staff member who placed the order.
             </p>
            
         </div>
         <div class="image">
-            <img src="https://github.com/AsmrProg-YT/Personal-Portfolios/blob/master/Personal%20Portfolio%20%2301/images/header.png?raw=true">
+            <img src="https://www.deskera.com/blog/content/images/size/w1000/2021/06/factors_of_demand_forecasting-01-2.jpg">
         </div>
     </header>
 
@@ -447,20 +501,21 @@ footer .column > a:hover{
                 <div class="col-md-2">
     
                 </div>
-                <div class="col-md-8">
-                    <table class="table bg-dark">
-                        <thead class="bg-dark">
-                            <tr class="text-white">
+                <div class="col-md-9 container1">
+                    <table >
+                        <thead >
+                            <tr >
                                 <th scope="col">Product</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Order by</th>
                                 <th scope="col">Date</th>
+                                <th scope="col">Chat</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for orders in orders %}
-                            <tr class="text-white">
+                            <tr >
                                 <td>{{ orders.product }}</td>
                                 <td>{{ orders.product.category }}</td>
                                 <td>{{ orders.order_quantity }}</td>
@@ -470,6 +525,14 @@ footer .column > a:hover{
                                 <td>
                                     {{orders.date}}
                                 </td>
+                                <td> 
+                                    <form method="post" action="{% url 'create_chat_room' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="sender_id" value="{{ user.id }}">
+                                        <input type="hidden" name="receiver_id" value="{{ orders.staff.id }}">
+                                        <button type="submit" class="btn1 ">Chat</button>
+                                    </form>
+                                  </td>
                             </tr>
                             {% endfor %}
                         </tbody>

@@ -433,8 +433,8 @@ footer .column > a:hover{
     <ul class="nav-links">
         {% if user.is_authenticated %}
         <li class="link"><a href="{% url 'dashboard-index' %}">Home</a></li>
-        <li id="link1" class="link"><a href="#">Features</a></li>
-        <li id="link2" class="link"><a href="#">Pricing</a></li>
+        <li id="link1" class="link"><a href="#">Dashboard</a></li>
+        <li id="link2" class="link"><a href="#">Graphs</a></li>
         <li id="link3" class="link"><a href="#">About</a></li>
         <li id="link6" class="link"><a href="{% url 'user-profile' %}"> {{user.username}} Profile</a></li>
         <form action="{% url 'user-logout' %}" method="post" style="display:inline;">
@@ -457,10 +457,10 @@ footer .column > a:hover{
             <p>
                 Now you can track your orders and view your staff at your fingertips.You can also create products and add them so that your staff can make requests based on it.
             </p>
-           
+            
         </div>
         <div class="image">
-            <img src="https://resources.tallysolutions.com/us/wp-content/uploads/2023/02/11302252_How-Inventory-Control-Helps-Your-Business.jpg">
+            <img src="https://www.deskera.com/blog/content/images/2021/06/InventoryManagement_Hero@3x.png">
         </div>
     </header>
     {% if user.is_authenticated and user.is_staff and user.is_superuser %}

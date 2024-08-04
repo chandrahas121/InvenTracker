@@ -402,11 +402,146 @@ footer .column > a:hover{
         grid-template-columns: 1fr 150px;
     }
 }
+.btn1, .btn2 {
+    background: #5E5DF0;
+    border-radius: 8px; /* Less rounded corners */
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+  }
+  
+  /* Ensure text color and background color are consistent on hover */
+  .btn1, .btn2 {
+    text-decoration: none; /* Remove underline */
+    color: #FFFFFF; /* Keep text color consistent */
+  }
+  
+  .btn1:hover, .btn2:hover {
+    color: #FFFFFF; /* Maintain text color on hover */
+    background: #5E5DF0; /* Maintain background color on hover */
+  }
+  .H-button{
+    padding: 8px;
+      width: 100%;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #323760;
+      border: 1px solid #6667b0;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  }
+  .container1::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+.container1 {
+    height: 400px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    background: linear-gradient(45deg, #49a09d, #5f2c82);
+	font-family: sans-serif;
+	font-weight: 100;
+    border-radius: 15px;
+}
+
+th,
+td {
+	padding: 15px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+th {
+	text-align: left;
+    background-color: #55608f;
+}
+
+thead {
+	th {
+		background-color: #55608f;
+	}
+}
+
+tbody {
+	tr {
+		&:hover {
+			background-color: rgba(255,255,255,0.3);
+		}
+	}
+	td {
+		position: relative;
+		&:hover {
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: -9999px;
+				bottom: -9999px;
+				background-color: rgba(255,255,255,0.2);
+				z-index: -1;
+			}
+		}
+	}
+}
+/* Existing button styles */
+.btn1, .btn2 {
+  background: #5E5DF0;
+  border-radius: 8px; /* Less rounded corners */
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
     </style>
 </head>
 
 <body>
-
     <nav>
         <div class="nav-logo">
             <a href="{% url 'dashboard-index' %}">
@@ -416,9 +551,12 @@ footer .column > a:hover{
 
         <ul class="nav-links">
             <li class="link"><a href="{% url 'dashboard-index' %}">Home</a></li>
-            <li id="link1" class="link"><a href="#">Features</a></li>
-            <li id="link2" class="link"><a href="#">Pricing</a></li>
-            <li id="link3" class="link"><a href="#">About</a></li>
+            
+            <li id="link6" class="link"><a href="{% url 'user-profile' %}"> {{user.username}} Profile</a></li>
+        <form action="{% url 'user-logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button class="H-button" type="submit">Logout</button>
+        </form>
         </ul>
         
     </nav>
@@ -427,17 +565,15 @@ footer .column > a:hover{
         <div class="content">
             <span class="blur"></span>
             <span class="blur"></span>
-            <h4>CREATE YOUR SITE LIKE A PRO</h4>
-            <H1>Hi, I'm <span>Reza</span>, Web Developer</H1>
+            
+            <h4>Manage Your Inventory With Ease!!</h4>
+            <H1>Hello <span>{{user.username}}</span>,</H1>
             <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus rem eos aliquid quo rerum
-                temporibus ipsum distinctio numquam ut omnis placeat, nam sint atque quos dolorem laborum? Rerum, esse
-                dolorem.
+                Here, you can view a comprehensive list of your staff members, including their names and roles. Additionally, you have the capability to initiate direct conversations with them through our integrated chat feature. This allows you to easily communicate, ask questions, provide instructions, or discuss any matters related to their work, all within a single platform.
             </p>
-           
         </div>
         <div class="image">
-            <img src="https://github.com/AsmrProg-YT/Personal-Portfolios/blob/master/Personal%20Portfolio%20%2301/images/header.png?raw=true">
+            <img src="https://barcloud.com/wp-content/uploads/2022/09/all-staff-and-employees-can-view-browse-and-request-items.svg">
         </div>
     </header>
 
@@ -446,11 +582,11 @@ footer .column > a:hover{
         <div class="container">
           <div class="row my-4">
               <div class="col-md-2"></div>
-              <div class="col-md-8">
-                  <table class="table bg-dark">
-                      <thead class="bg-dark">
-                          <tr class="text-white">
-                              <th scope="col">#</th>
+              <div class="col-md-8 container1">
+                  <table >
+                      <thead >
+                          <tr >
+                              <th scope="col">Profile</th>
                               <th scope="col">Name</th>
                               <th scope="col">Email</th>
                               <th scope="col">Phone</th>
@@ -459,8 +595,8 @@ footer .column > a:hover{
                       </thead>
                       <tbody>
                           {% for worker in workers %}
-                          <tr class="text-white">
-                              <th scope="row"><a class="btn btn-info btn-sm" href="{% url 'dashboard-staff-detail' worker.id %}">View</a></th>
+                          <tr >
+                              <th ><a class="btn1" href="{% url 'dashboard-staff-detail' worker.id %}">View</a></th>
                               <td>{{ worker.username }}</td>
                               <td>{{ worker.email }}</td>
                               <td>{{ worker.profile.phone }} </td>
@@ -469,7 +605,7 @@ footer .column > a:hover{
                                     {% csrf_token %}
                                     <input type="hidden" name="sender_id" value="{{ user.id }}">
                                     <input type="hidden" name="receiver_id" value="{{ worker.id }}">
-                                    <button type="submit" class="btn btn-info">Chat</button>
+                                    <button type="submit" class="btn1">Chat</button>
                                 </form>
                               </td>
                           </tr>
@@ -485,42 +621,7 @@ footer .column > a:hover{
 
     
 
-    <footer class="container">
-        <span class="blur"></span>
-        <span class="blur"></span>
-        <div class="column">
-            <div class="logo">
-                <img src="{%static 'images/logo3.png' %}">
-            </div>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <div class="socials">
-                <a href="#"><i class="ri-youtube-line"></i></a>
-                <a href="#"><i class="ri-instagram-line"></i></a>
-                <a href="#"><i class="ri-twitter-line"></i></a>
-            </div>
-        </div>
-        <div class="column">
-            <h4>Company</h4>
-            <a href="#">Business</a>
-            <a href="#">Partnership</a>
-            <a href="#">Network</a>
-        </div>
-        <div class="column">
-            <h4>About Us</h4>
-            <a href="#">Blogs</a>
-            <a href="#">Channels</a>
-            <a href="#">Sponsors</a>
-        </div>
-        <div class="column">
-            <h4>Contact</h4>
-            <a href="#">Contact Us</a>
-            <a href="#">Privicy Policy</a>
-            <a href="#">Terms & Conditions</a>
-        </div>
-    </footer>
-
+    
 
     <script >
       function scrollToElement(elementSelector, instance = 0) {
