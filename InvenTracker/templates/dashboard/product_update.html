@@ -418,6 +418,59 @@ footer .column > a:hover{
         grid-template-columns: 1fr 150px;
     }
 }
+.btn1{
+    background: #5E5DF0;
+    border-radius: 999px;
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+}
+ .btn2 {
+    background: #5E5DF0;
+    border-radius: 999px;
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+  }
+  
+  /* Ensure text color and background color are consistent on hover */
+  .btn1, .btn2 {
+    text-decoration: none; /* Remove underline */
+    color: #FFFFFF; /* Keep text color consistent */
+  }
+  
+  .btn1:hover, .btn2:hover {
+    color: #FFFFFF; /* Maintain text color on hover */
+    background: #5E5DF0; /* Maintain background color on hover */
+  }
     </style>
 </head>
 
@@ -457,50 +510,15 @@ footer .column > a:hover{
         <form method="POST">
         {% csrf_token %}
         {{form|crispy}}
-        <a class="btn btn-secondary" href="{% url 'dashboard-product' %}">Cancel</a>
-        <input class="btn btn-info" type="submit" value="Update">
+        <a class="btn1" href="{% url 'dashboard-product' %}">Cancel</a>
+        <input class="btn2" type="submit" value="Update">
       </form>
       </div>
     </div>
   </div>
 </div>
 
-    
-    <footer class="container">
-        <span class="blur"></span>
-        <span class="blur"></span>
-        <div class="column">
-            <div class="logo">
-                <img src="{%static 'images/logo3.png' %}">
-            </div>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <div class="socials">
-                <a href="#"><i class="ri-youtube-line"></i></a>
-                <a href="#"><i class="ri-instagram-line"></i></a>
-                <a href="#"><i class="ri-twitter-line"></i></a>
-            </div>
-        </div>
-        <div class="column">
-            <h4>Company</h4>
-            <a href="#">Business</a>
-            <a href="#">Partnership</a>
-            <a href="#">Network</a>
-        </div>
-        <div class="column">
-            <h4>About Us</h4>
-            <a href="#">Blogs</a>
-            <a href="#">Channels</a>
-            <a href="#">Sponsors</a>
-        </div>
-        <div class="column">
-            <h4>Contact</h4>
-            <a href="#">Contact Us</a>
-            <a href="#">Privicy Policy</a>
-            <a href="#">Terms & Conditions</a>
-        </div>
-    </footer>
+
 
    
   </body>
