@@ -485,9 +485,6 @@ footer .column > a:hover{
     <ul class="nav-links">
         {% if user.is_authenticated %}
         <li class="link"><a href="{% url 'dashboard-index' %}">Home</a></li>
-        <li id="link1" class="link"><a href="#">Features</a></li>
-        <li id="link2" class="link"><a href="#">Pricing</a></li>
-        <li id="link3" class="link"><a href="#">About</a></li>
         <li id="link6" class="link"><a href="{% url 'user-profile' %}">Profile</a></li>
         <form action="{% url 'user-logout' %}" method="post" style="display:inline;">
             {% csrf_token %}

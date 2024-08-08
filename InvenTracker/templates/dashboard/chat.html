@@ -85,7 +85,7 @@
         .selected-user {
             width: 100%;
             padding: 0 15px;
-            min-height: 64px;
+            min-height: 32px;
             line-height: 64px;
             border-bottom: 1px solid #e6ecf3;
             -webkit-border-radius: 0 3px 0 0;
@@ -113,8 +113,8 @@
             margin-bottom: 40px;
         }
         .chat-container li img {
-            width: 48px;
-            height: 48px;
+            width: 25px;
+            height: 25px;
             -webkit-border-radius: 30px;
             -moz-border-radius: 30px;
             border-radius: 30px;
@@ -135,7 +135,10 @@
             text-align: center;
         }
         .chat-container li .chat-text {
-            padding: .4rem 1rem;
+     
+            padding-left:1rem;
+            padding-right:1rem;
+            padding-bottom:0px;
             -webkit-border-radius: 4px;
             -moz-border-radius: 4px;
             border-radius: 4px;
@@ -259,8 +262,8 @@
         }
         /* Styling the button */
         .btn-custom {
-            background-color: #f4511e !important;
-            border-color: #f4511e !important;
+            background-color: #6667b0 !important;
+            border-color: #6667b0 !important;
             color: white; /* Set text color to white */
             height: calc(100% - 7px); /* Adjusted height */
             border-top-left-radius: 0; /* Remove border-radius from top-left */
@@ -378,5 +381,45 @@
             //});
         });
     </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Function to scroll chat messages to the bottom
+            function scrollChatToBottom() {
+                var chatMessages = $('.chat-messages');
+                chatMessages.scrollTop(chatMessages.prop('scrollHeight'));
+            }
+            // Scroll to bottom when the page loads
+            scrollChatToBottom();
+    
+            // Function to handle the enabling/disabling of the send button
+            function toggleSendButton() {
+                var messageInput = $('#messageInput');
+                var sendButton = $('#button-addon2');
+    
+                if (messageInput.val().trim() === '') {
+                    sendButton.prop('disabled', true);
+                } else {
+                    sendButton.prop('disabled', false);
+                }
+            }
+    
+            // Initial check when the page loads
+            toggleSendButton();
+    
+            // Check the input on every keyup event
+            $('#messageInput').on('keyup', function() {
+                toggleSendButton();
+            });
+    
+            // Optional: Uncomment if you want to use AJAX for form submission
+            //$('#messageForm').submit(function(event) {
+                //event.preventDefault(); // Prevent the form from submitting normally
+                // Your form submission logic goes here
+                // After the message is sent, scroll to bottom
+                //scrollChatToBottom();
+            //});
+        });
+    </script>
+    
 </body>
 </html>
