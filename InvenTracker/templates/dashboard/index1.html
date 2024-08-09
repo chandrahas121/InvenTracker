@@ -64,6 +64,7 @@ nav{
 }
 
 .link a{
+    text-decoration:none;
     position: relative;
     padding-bottom: 0.75rem;
     color: #fff;
@@ -501,20 +502,14 @@ footer .column > a:hover{
     <section>
     <h2 class="header">Graphs</h2>
     <p class="header1">Stay updated with the latest information through our dynamic real-time graphs. Our dashboard features two essential visualizations:
-        <ul class="header1">
-            <li>
-               <span>Orders Overview</span>  - Pie Chart: This interactive pie chart provides a comprehensive overview of the current order statuses. It categorizes orders into segments such as pending, processed, shipped, and delivered, allowing you to quickly grasp the distribution and performance of your order management.
-            </li>
-            <li>
-               <span>Product Availability</span>  - Bar Graph: Monitor your inventory effortlessly with our detailed bar graph. It displays the available products along with their respective quantities. Each bar represents a specific product, giving you a clear picture of stock levels, helping in efficient inventory management, and ensuring that you never run out of your best-selling items.
-            </li>
-        </ul>  
+    <p class="header1"><span>Orders Overview</span></p>
+    <p class="header1"><span>Product Availability</span></p>
         <p class="header1">These real-time graphs are designed to provide actionable insights at a glance, empowering you to make informed decisions and keep your operations running smoothly.</p>      
         </p>
     <div class="container">
       <div class="row my-5">
           <div class="col-md-6">
-              <div class="bg-dark">
+              <div class="bg-dark"  style="border-radius:13px">
                   <canvas id="myChart1" width="400" height="300"></canvas>
                   <script>
                       var ctx = document.getElementById('myChart1').getContext('2d');
@@ -558,7 +553,7 @@ footer .column > a:hover{
               </div>
           </div>
           <div class="col-md-6">
-              <div class="bg-dark">
+              <div class="bg-dark"  style="border-radius:13px">
                   <canvas id="myChart" width="400" height="300"></canvas>
                   <script>
                       var ctx = document.getElementById('myChart').getContext('2d');

@@ -59,12 +59,13 @@ nav{
 .nav-links{
     list-style: none;
     display: flex;
+    text-decoration:none;
     align-items: center;
     gap: 3rem;
 }
 
 .link a{
-    decoration:none;
+    text-decoration:none;
     position: relative;
     padding-bottom: 0.75rem;
     color: #fff;
@@ -83,6 +84,7 @@ nav{
 
 .link a:hover::after{
     width: 70%;
+    text-decoration:none;
 }
 
 .btn{
@@ -568,7 +570,7 @@ tbody {
     </div>
     <ul class="nav-links">
         {% if user.is_authenticated %}
-        <li class="link"><a href="{% url 'dashboard-index' %}">Home</a></li>
+        <li class="link"><a style="text-decoration:none" href="{% url 'dashboard-index' %}">Home</a></li>
         <li id="link1" class="link"><a href="#">Dashboard</a></li>
         {% if user.is_staff and user.is_superuser %}
         <li id="link2" class="link"><a href="#">Graphs</a></li>
@@ -610,7 +612,7 @@ tbody {
                 <span><i class="ri-money-dollar-box-line"></i></span>
                 <h4>Products</h4>
                 <p>
-                    Products:{{product_count}}
+                    Products : {{product_count}}
                 </p>
                 <a href="{% url 'dashboard-product' %}">Products<i class="ri-arrow-right-line"></i></a>
             </div>
@@ -618,7 +620,7 @@ tbody {
                 <span><i class="ri-shopping-basket-line"></i></span>
                 <h4>Orders</h4>
                 <p>
-                    Total Orders:{{orders_count}}
+                    Total Orders : {{orders_count}}
                 </p>
                 <a href="{% url 'dashboard-order' %}">Orders<i class="ri-arrow-right-line"></i></a>
             </div>
