@@ -432,6 +432,40 @@ footer .column > a:hover{
 .edit-button:hover {
     background-color: #1e40af;
 }
+.btn1, .btn2 {
+    background: #5E5DF0;
+    border-radius: 8px; /* Less rounded corners */
+    box-shadow: #5E5DF0 0 10px 20px -10px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    opacity: 1;
+    outline: 0 solid transparent;
+    padding: 8px 18px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: fit-content;
+    word-break: break-word;
+    border: 0;
+  }
+  
+  /* Ensure text color and background color are consistent on hover */
+  .btn1, .btn2 {
+    text-decoration: none; /* Remove underline */
+    color: #FFFFFF; /* Keep text color consistent */
+  }
+  
+  .btn1:hover, .btn2:hover {
+    color: #FFFFFF; /* Maintain text color on hover */
+    background: #5E5DF0; /* Maintain background color on hover */
+  }
+  
+ 
     </style>
 </head>
 
@@ -465,9 +499,7 @@ footer .column > a:hover{
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-info text-white">
-                    Profile Page
-                </div>
+                
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-8">
@@ -479,7 +511,7 @@ footer .column > a:hover{
                               {% csrf_token %}
                               {{user_form | crispy }}
                               {{profile_form | crispy }}
-                              <input class = "btn btn-info" type="submit" value="Update">
+                              <input class = "btn1" type="submit" value="Update">
                             </form>
                         </div>
                       
