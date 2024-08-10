@@ -1,5 +1,5 @@
-Django
-pillow
-django-cleanup
-django-allauth
-django-htmx
+Django==5.0.3
+django-crispy-forms==1.14.0
+crispy-bootstrap4==2022.1
+channels==4.0.0
+Pillow
